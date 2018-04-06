@@ -1,0 +1,60 @@
+
+<div id="content" class="message">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-5">
+                <div class="title white_back">
+                    <div class="media" ng-repeat="chats in lastchat">
+                        <div class="media-left media-middle">
+                            <a >
+                                <img class="media-object" src="{{chats.friend_info.photo}}" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body" ng-click="getchat(chats)">
+                            <h4 class="media-heading">{{chats.friend_info.name}}<span ng-init="timeago=gettime(chats.created)">{{timeago}}</span></h4>
+                            <p class="media-pera">{{chats.message}}.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+
+                <div class="title white_back msg_html" ng-show="friend_id!=0">
+                    <h4>  <img class="media-object" src="{{friend_image}}" alt="..."> <span>{{friend_name}} </span></h4> <small> last seen today 8:40 PM</small>
+                    <ul class="btns_send">
+                        <li style="border-right:1px solid #ddd"> <a > + Send my email</a></li>
+                        <li> <a > + Send my phone</a></li>
+                    </ul>
+                    <div class="chat_all">
+                        <div class="media " id="chat" ng-repeat="chat in allchat" ng-class="(chat.is_send!=1)?'msg_side':'msg_side_right'" >
+                            <div class="media-right media-middle">
+                                <a >
+                                    <img class="media-object" ng-class="(chat.is_send!=1)?'abcd':''" ng-init="image=(chat.is_send==1)?chat.friend_info.photo:chat.sender_info.photo" src="{{image}}" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading2" ng-init="timeago=gettime(chat.created)">{{timeago}}</h4>
+                                <p class="media-pera2">{{chat.message}}</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="snd_btns">
+                        <input type="text" ng-show="friend_id!=0" ng-model="message" placeholder="Type a message"> <span ng-click="sendmesssage()"> Send </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>

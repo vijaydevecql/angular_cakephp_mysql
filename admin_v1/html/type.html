@@ -1,0 +1,142 @@
+<div class="page-wrapper" >
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Type</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/!">Home</a></li>
+        <li class="breadcrumb-item active">Type</li>
+      </ol>
+    </div>
+    <div>
+      <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+
+          <div class="col-12">
+
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title">Type listing</h4>   <input type="text" ng-model="text" class="  pull-right" placeholder="Search" >
+                      <h6 class="card-subtitle"></h6>
+                      <button type="button" class="btn btn-info btn-rounded " ng-click="type_add()" >Add Type</button>
+                      <div class="table-responsive">
+                          <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                              <thead>
+                                  <tr>
+
+                                      <th><center>Name</center></th>
+                                      <th><center>Category Name</center></th>
+                                      <th><center>status</center></th>
+
+                                      <th><center>Action</center></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-show="all_type.length==0"><td><center> NO Record Found</center> </td></tr>
+                                  <tr ng-show="all_type.length>0" ng-repeat="type in all_type | filter:text">
+
+                                      <td><center>
+                                        {{type.name}}
+                                      </center>
+                                      </td>
+                                      <td><center>  {{type.category_name}} <center></td>
+                                      <td><center><span ng-click="update_status_type(type)" class="label " ng-class="(type.status==1)?'label-success':'label-danger'"><span ng-bind="(type.status==1)?'Active':'Deactive'"></span></span><center> </td>
+
+
+                                      <td >
+
+                                                        <center>  <button  ng-click="edit_type(type)" class="btn btn-info lable-small" >Edit</button><button ng-click="delete_type(type)" class="btn btn-danger" >Delete</button></center>
+
+
+
+                                          </td>
+
+
+
+                                  </tr>
+
+                              </tbody>
+                              <tfoot>
+                                  <tr>
+                                      <td colspan="2">
+
+                                      </td>
+                                      <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+
+                                                      <h4 class="modal-title" ><center>{{name}}</center> </h4> </div>
+                                                  <div class="modal-body">
+                                                    <form name="add_type"  id="add_type">
+                                                        <div class="form-body">
+
+                                                            <div class="row p-t-20">
+                                                                <div class="col-md-6" ng-class="(add_type.name.$touched && add_type.name.$invalid)?'has-danger':''">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Name</label>
+                                                                        <input type="text" name="name" ng-model="name" required class="form-control" placeholder="Name">
+                                                                        <small ng-show="add_type.name.$touched && add_type.name.$invalid" class="form-control-feedback"> Name filed is required </small> </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group " ng-class="(add_type.category_id.$touched && add_type.category_id.$invalid)?'has-danger':''">
+                                                                        <label class="control-label">Category</label>
+                                                                        <select  ng-model="category_id" name="category_id"  required id="" class="form-control form-control-danger" >
+
+                                                                            <option ng-repeat="cat in all_cat" ng-if="(cat.id==category_id)?'selected':''" value="{{cat.id}}">{{cat.name}}</option>
+
+                                                                        </select>
+                                                                        <small ng-show="add_type.category_id.$touched && add_type.category_id.$invalid" class="form-control-feedback"> Category field is required. </small> </div>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-actions">
+                                                          <center>  <button type="submit" id="avc" ng-click="update_type(type)" ng-disabled="add_type.$invalid" class="btn btn-success"> <i class="fa fa-check"></i> Updat</button>
+                                                            <button type="button"  data-dismiss="modal"  class="btn btn-inverse">Cancel</button></center>
+                                                        </div>
+                                                    </form>
+                                                  </div>
+
+                                              </div>
+                                              <!-- /.modal-content -->
+                                          </div>
+                                          <!-- /.modal-dialog -->
+                                      </div>
+                                      <td colspan="7">
+                                          <div class="text-right">
+                                              <ul class="pagination"> </ul>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tfoot>
+                          </table>
+                      </div>
+
+                  </div>
+              </div>
+              <!-- Column -->
+
+
+
+          </div>
+      </div>

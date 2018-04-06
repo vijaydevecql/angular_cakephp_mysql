@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Carbook</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/fullcalendar.css" />
+<link rel="stylesheet" href="css/matrix-style.css" />
+<link rel="stylesheet" href="css/matrix-media.css" />
+
+<link rel="stylesheet" href="css/bootstrap.min_new.css" />
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/jquery.gritter.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/style_custom.css" />
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+   <a href="#"><h1></h1> </a>
+ 
+</div>
+<!--close-Header-part--> 
+
+<span class="deshbrd"> Wishlist</span>
+<!--top-Header-menu-->
+<div id="user-nav" class="">
+ <a href=""  class="slr_btn">I am seller</a>
+ <a href=""  class="ntfctn"><img src="images/notification.png" > <span class="bell"> 10</span></a>
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" >
+		<img class="admin" src="http://www.iconninja.com/files/864/851/698/admin-icon.png" >
+	<a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
+	<span class="text">Welcome Alex
+	<span class="color_green"> 12 offers</span> </span>
+	<b class="caret"></b></a> 
+
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+        <li class="divider"></li>
+        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="submenu ">  
+	<div class="form-group srch_btn">
+	<i class="icon icon-search"></i>
+		<input class="form-control" id="email" type="text" placeholder="Search">
+	</div>
+     
+    </li>
+	<li class="submenu active"> <a href="#"><i class="icon icon-arrow-right"></i> <span>Recent</span> </a>
+      <ul>
+        <li><a href="form-common.html">Approved Contract Worksheets</a></li>
+        <li><a href="form-validation.html">Jobs - Assigned</a></li>
+        <li><a href="form-wizard.html">Submitted Jobs</a></li>
+        <li><a href="form-wizard.html">Jobs - Completed</a></li>
+        <li><a href="form-wizard.html">Jobs - Invoiced</a></li>
+        <li><a href="form-wizard.html">Jobs - Approved</a></li>
+        <li><a href="form-wizard.html">Submitted Jobs</a></li>
+      </ul>
+    </li>
+    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Dashboard</span></a> </li>
+	<li class="submenu"> <a href="#"><i class="icon icon-user"></i> <span>Leads</span> </a>
+      <ul>
+        <li><a href="form-common.html">Create Lead</a></li>
+        <li><a href="form-validation.html">Assigned</a></li>
+        <li><a href="form-validation.html">Unassigned</a></li>
+        <li><a href="form-validation.html">Distributed</a></li>
+        <li><a href="form-validation.html">My Distributed</a></li>
+      </ul>
+    </li>
+	<li class="submenu"> <a href="#"><i class="icon icon-gift"></i> <span>Jobs</span> </a>
+      <ul>
+        <li><a href="form-validation.html">Prospects</a></li>
+        <li><a href="form-validation.html">Approved</a></li>
+        <li><a href="form-validation.html"> Completed</a></li>
+        <li><a href="form-validation.html"> Invoiced</a></li>
+        <li><a href="form-validation.html"> Closed</a></li>
+        <li><a href="form-validation.html">  Cancelled</a></li>
+      </ul>
+    </li>
+	<li class="submenu"> <a href="#"><i class="icon icon-random"></i> <span>Track</span> </a>
+      <ul>
+        <li><a href="form-validation.html"> Submitted Leads</a></li>
+        <li><a href="form-validation.html">Submitted Jobs</a></li>
+        <li><a href="form-validation.html">Job Progress</a></li>
+        <li><a href="form-validation.html">Work Schedule</a></li>
+        <li><a href="form-validation.html">Approved Contract Worksheets</a></li>
+        <li><a href="form-validation.html">Recorded Contract Worksheets</a></li>
+        <li><a href="form-validation.html"> Submitted Contract Worksheets</a></li>
+        <li><a href="form-validation.html">Submitted Orders</a></li>
+        <li><a href="form-validation.html">Pre-Commissions</a></li>
+        <li><a href="form-validation.html">Commissions</a></li>
+        <li><a href="form-validation.html"> Permits</a></li>
+        <li><a href="form-validation.html">Supplements</a></li>
+        <li><a href="form-validation.html">Mortgage Checks</a></li>
+      </ul>
+    </li>
+	
+    <li> <a href="widgets.html"><i class="icon icon-file"></i> <span>Reports</span></a> </li>
+    <li><a href="tables.html"><i class="icon icon-wrench"></i> <span>Tools</span></a></li>
+    <li><a href="grid.html"><i class="icon icon-book"></i> <span>Directory</span></a></li>
+    
+  </ul>
+  <div class="btm_optn">
+	<p> <a href="" > Recommend to friends</a></p>
+	<p> <a href="" > Contact Us</a></p>
+  </div>
+  <div class="btm_imgs">
+	<p> <a href="" ><img src="images/google.jpg"></a></p>
+	<p> <a href="" ><img src="images/apple.jpg"></a></p>
+  </div>
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content" class="wishlist">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-6">
+				<div class="title white_back">
+					<div class="media">
+						  <div class="media-body wish_list_itms">
+							<div class="dlt_optn">
+							<h4 class="media-heading">Middle aligned media
+							<span class="on_off">
+							<small> Notifications:  </small>
+								<label class="switch">
+								  <input checked="" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</span></h4>
+							<p class="media-pera">Vehicles</p>
+							<h5> All Items</h5>
+							</div>
+							<div class="dlt_blk">
+							
+								<div class="col-md-4 brdr_right">
+									<p > Total Results 300+</p>
+								</div>
+								<div class="col-md-4 brdr_right">
+									<h3> New Results 84</h3>
+								</div>
+								<div class="col-md-4">
+									<h4> Delete</h4>
+								</div>
+							</div>
+						  </div>
+					</div>
+					
+					<div class="media">
+						  <div class="media-body wish_list_itms">
+							<div class="dlt_optn">
+							<h4 class="media-heading">Middle aligned media
+							<span class="on_off">
+							<small> Notifications:  </small>
+								<label class="switch">
+								  <input checked="" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</span></h4>
+							<p class="media-pera">Vehicles</p>
+							<h5> All Items</h5>
+							</div>
+							<div class="dlt_blk">
+							
+								<div class="col-md-4 brdr_right">
+									<p > Total Results 300+</p>
+								</div>
+								<div class="col-md-4 brdr_right">
+									<h3> New Results 84</h3>
+								</div>
+								<div class="col-md-4">
+									<h4> Delete</h4>
+								</div>
+							</div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-body wish_list_itms">
+							<div class="dlt_optn">
+							<h4 class="media-heading">Middle aligned media
+							<span class="on_off">
+							<small> Notifications:  </small>
+								<label class="switch">
+								  <input checked="" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</span></h4>
+							<p class="media-pera">Vehicles</p>
+							<h5> All Items</h5>
+							</div>
+							<div class="dlt_blk">
+							
+								<div class="col-md-4 brdr_right">
+									<p > Total Results 300+</p>
+								</div>
+								<div class="col-md-4 brdr_right">
+									<h3> New Results 84</h3>
+								</div>
+								<div class="col-md-4">
+									<h4> Delete</h4>
+								</div>
+							</div>
+						  </div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-md-6">
+				
+			</div>
+		</div>
+	 </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+   
+</div>
+
+<!--end-Footer-part-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/excanvas.min.js"></script> 
+<script src="js/jquery.min.js"></script> 
+<script src="js/jquery.ui.custom.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/jquery.flot.min.js"></script> 
+<script src="js/jquery.flot.resize.min.js"></script> 
+<script src="js/jquery.peity.min.js"></script> 
+<script src="js/fullcalendar.min.js"></script> 
+<script src="js/matrix.js"></script> 
+<script src="js/matrix.dashboard.js"></script> 
+<script src="js/jquery.gritter.min.js"></script> 
+<script src="js/matrix.interface.js"></script> 
+<script src="js/matrix.chat.js"></script> 
+<script src="js/jquery.validate.js"></script> 
+<script src="js/matrix.form_validation.js"></script> 
+<script src="js/jquery.wizard.js"></script> 
+<script src="js/jquery.uniform.js"></script> 
+<script src="js/select2.min.js"></script> 
+<script src="js/matrix.popover.js"></script> 
+<script src="js/jquery.dataTables.min.js"></script> 
+<script src="js/matrix.tables.js"></script> 
+
+<script type="text/javascript">
+  // This function is called from the pop-up menus to transfer to
+  // a different page. Ignore if the value returned is a null string:
+  function goPage (newURL) {
+
+      // if url is empty, skip the menu dividers and reset the menu selection to default
+      if (newURL != "") {
+      
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-" ) {
+              resetMenu();            
+          } 
+          // else, send page to designated URL            
+          else {  
+            document.location.href = newURL;
+          }
+      }
+  }
+
+// resets the menu selection upon entry to this page:
+function resetMenu() {
+   document.gomenu.selector.selectedIndex = 2;
+}
+
+</script>
+
+</body>
+</html>

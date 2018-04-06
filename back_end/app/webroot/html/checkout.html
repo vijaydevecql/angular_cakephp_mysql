@@ -1,0 +1,141 @@
+
+<div id="content" class="purchase">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-6">
+				<div class="title white_back">
+					<h3> Selected Plan</h3>
+					<div class="slctd_plan">
+						<div class="col-md-4 brder_paln1 pera_edit">
+							<p>Plan Name <br> <span>{{plandetails.name}} </span> </p>
+						</div>
+						<div class="col-md-4 brder_paln2 pera_edit">
+							<p>Price Price <br> <span>$ {{plandetails.price}} </span> </p>
+						</div>
+						<div class="col-md-4 brder_paln3 pera_edit">
+							<p>Plan Expires Time (day) <br> <span>{{plandetails.time}}</span> </p>
+						</div>
+					</div>
+				</div>
+
+				<div class="steps2 white_back">
+					<h3> Enter your card information</h3>
+					<div class="payment_blc">
+						<div class="form-group ">
+							<label> Name of card </label>
+							<input class="form-control border_rds" id="email" ng-model="name"  placeholder="Name of card"  type="text">
+						</div>
+						<div class="form-group visa_pic ">
+								<div class=" visa_pic1 ">
+									<label> Card number </label>
+									<input class="form-control border_rds" ng-model="card_number"   placeholder="1241 1241 2142 5689" type="number">
+								</div>
+							<img src="../webhtml/images/visa.png" >
+						</div>
+						<div  class="col-md-3">
+							<div class="form-group ">
+							<label> Expires Month </label>
+							<input class="form-control border_rds" id="email" ng-model="expiry_month" placeholder="2050" type="number">
+							</div>
+						</div>
+            <div  class="col-md-3">
+							<div class="form-group ">
+							<label> Expires Year </label>
+							<input class="form-control border_rds" id="email" ng-model="expiry_year" placeholder="09" type="number">
+							</div>
+						</div>
+						<div  class="col-md-6">
+							<div class="form-group ">
+							<label>CVV </label>
+							<input class="form-control border_rds" name="cvv" ng-model="cvv" id="email" value=" ***" type="text">
+							</div>
+						</div>
+					</div>
+
+					<div class="chck_pay"><p> <input type="checkbox" >  Your card will be charged automatically each month </p></div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="title white_back">
+					<h3> Billing address</h3>
+					<div class="billing_adrs">
+						<p class="use_ards">
+							<label class="radio1">Use billing address from my information
+								  <input checked="checked" name="radio" type="radio">
+								  <span class="checkmark"></span>
+							</label>
+						</p>
+
+						<p class="use_ards">
+							<label class="radio1">New billing address
+								  <input checked="checked" name="radio" type="radio">
+								  <span class="checkmark"></span>
+							</label>
+						</p>
+						<div class="new_adrs">
+							<div class="side_4 ">
+								<div class="span3 ">
+									<span class="srch_text"> Address</span>
+								</div>
+								<div class="span6 ">
+								<div class="form-group">
+									<input placeholder="Enter new address" ng-model="address" class="form-control" id="exampleFormControlSelect1">
+
+								 </div>
+								 <img class="down" src="../webhtml/images/down.png">
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span3 ">
+									<span class="srch_text"> State</span>
+								</div>
+								<div class="span4 ">
+								<div class="form-group">
+                  <input placeholder="Enter new address" ng-model="state" class="form-control" id="exampleFormControlSelect1">
+								 </div>
+								 <img class="down" src="../webhtml/images/down.png">
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span3 ">
+									<span class="srch_text"> City</span>
+								</div>
+								<div class="span4 ">
+								<div class="form-group">
+                  <input placeholder="Enter new address" ng-model="city" class="form-control" id="exampleFormControlSelect1">
+								 </div>
+								 <img class="down" src="../webhtml/images/down.png">
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span3 ">
+									<span class="srch_text"> ZIP</span>
+								</div>
+								<div class="span4 ">
+								<div class="form-group">
+									<input placeholder="Enter new address" ng-model="zip_code" class="form-control" id="exampleFormControlSelect1">
+								 </div>
+								 <img class="down" src="../webhtml/images/down.png">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 agremnt">
+							<p>Buying plans I accept  <br><span> service agreement</span></p>
+						</div>
+						<div class="col-md-6">
+						<a ng-click="buy_plan_now()" class="blu_filter"> Confirm Purchase</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>

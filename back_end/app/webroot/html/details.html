@@ -1,0 +1,207 @@
+
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content" class="profile prodct_view">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-7">
+				<button class="accordion"> {{fulldetails.category_name}}  </button>
+					<div class="panel white_back">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li ng-repeat="(key,image) in fulldetails.images" data-target="#myCarousel" data-slide-to="{{key}}" class="active"></li>
+
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active" ng-repeat="image in fulldetails.images">
+        <img src="{{image.images}}" alt="Los Angeles" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+						<!--<img ng-repeat="image in fulldetails.images" src="{{image.images}}" >-->
+					</div>
+
+				<button class="accordion"> Main Characterisics</button>
+					<div class="panel filter">
+						<div class=" slot_3 ">
+						<p ng-repeat="(key,value) in fulldetails " ng-show="key!='userinfo' && key!='id' && key!='user_id' && key!='is_fav' &&  key!='is_deleted' &&  key!='Specification' &&  key!='created' &&  key!='modified' ">{{key}} <span ng-bind="value">  </span></p>
+						</div>
+
+					</div>
+
+				<button class="accordion">Specifications</button>
+					<div class="panel filter">
+						<div class=" slot_3 ">
+						<p ng-repeat="(key,value) in fulldetails.Specification[0
+            ] " ng-show="key!='additional_information' && key!='id' && key!='ad_id' &&  key!='created' &&  key!='modified'"> {{key}} <span> {{value}} </span></p>
+
+						</div>
+
+					</div>
+					<button class="accordion">Information</button>
+					<div class="panel filter">
+						<p>{{fulldetails.Specification[0].additional_information}} </p>
+
+					</div>
+
+					<div class="suggest white_back">
+							<h3> Other Slots from this seller</h3>
+
+							<div class="col-md-4">
+								<div class="sgst_list">
+									<img src="../webhtml/images/car3.jpg">
+									<h2>Lorem Ipsum is simply dummy text of</h2>
+									<p> <small>$ {{fulldetails.price}}</small> <span>  <i class="far fa-heart blue_heart"></i></span></p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sgst_list">
+									<img src="../webhtml/images/car3.jpg">
+									<h2>Lorem Ipsum is simply dummy text of</h2>
+									<p> <small>$ 25 000</small> <span>  <i class="fas fill_heart fa-heart"></i></span></p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sgst_list">
+									<img src="../webhtml/images/car3.jpg">
+									<h2>Lorem Ipsum is simply dummy text of</h2>
+									<p> <small>$ 25 000</small> <span>  <i class="fas fill_heart fa-heart"></i></span></p>
+								</div>
+							</div>
+					</div>
+			</div>
+			<div class="col-md-5 prct_pricing">
+				<div class="title white_back">
+					<h3> Price </h3>
+					<h2 class="prdct_price2"> {{fulldetails.price}} <span> <img ng-click="fav(fulldetails)" ng-if="fulldetails.is_fav==1" src="../webhtml/images/hrt1.png"> <img ng-click="fav(fulldetails)" ng-if="fulldetails.is_fav==0" src="../webhtml/images/hrt.png"> <br>{{fulldetails.like_count}}</span></h2>
+
+					<div class="btn_yello">
+						<a  ><img src="../webhtml/images/need.png" > </a>
+						<a ><img src="../webhtml/images/yelow.png" > </a>
+						<div class="col-md-12  ">
+						<a href="" class="blu_filter"> Contact  the seller</a>
+					</div>
+					</div>
+
+					</div>
+					<div class="title white_back ">
+					<div class=" cmnts_prdct">
+
+						<div class="col-md-12  ">
+						<h3>Seller ({{fulldetails.comment_count}}) <span ng-click="show_profile(fulldetails.userinfo)"> Show Profile <span class="blue_icon"><img src="../webhtml/images/blue_arow.png"></span></span></h3>
+                                                <div class="media cmnt_block" ng-repeat="cmt in comments">
+						  <div class="media-left media-middle ">
+							<a href="#">
+							  <img class="media-object" src="{{cmt.user_info.photo}}" alt="...">
+							  <span class="slr_pic" ng-bind="(cmt.user_info.user_type==1)?'Seller':'User'"> </span>
+							</a>
+						  </div>
+						  <div class="media-body">
+							<h4 class="media-heading">{{cmt.user_info.name}}</h4>
+							<p class="media-pera">{{cmt.comment}} </p>
+							<p><span class="slr_time"> 10:08 AM  14/07/2018</span>  </p>
+						  </div>
+					</div>
+
+
+						</div>
+							
+
+					</div>
+					<div class="snd_btns">
+                        <input ng-show="friend_id!=0" ng-model="message" placeholder="Type a message" class="ng-pristine ng-valid ng-empty ng-touched" style="" type="text"> <span ng-click="sendmesssage()"> Send </span>
+                    </div>
+					</div>
+					<!--<center><input type="text" placeholder="Write a Comment" ng-model="comment" class="form-control" name="comment" required/><button ng-click="docomment()" class="btn btn-info" >Commentfd</button></center> -->
+
+					<div class="title white_back cmnts_prdct">
+					<h3>Seller <span ng-click="show_profile(fulldetails.userinfo)"> Show Profile <span class="blue_icon"><img src="../webhtml/images/blue_arow.png"></span></span></h3>
+						<div class="col-md-4  " ng-init="photo=(fulldetails.userinfo.photo=='')?'../webhtml/images/todd.png':fulldetails.userinfo.photo">
+							<img class="cmnts_prdct_img" src="{{photo}}">
+						</div>
+						<div class="col-md-8  ">
+						<div class=" slot_3 ">
+							<h4> {{fulldetails.userinfo.name}}</h4>
+						<p> Type  <span ng-bind="(fulldetails.userinfo.user_type==1)?'Company':'Personal'">  </span></p>
+						<p> Location <span> {{fulldetails.userinfo.city}}  </span></p>
+						<p> Last seen    <span> Today, 06:17 AM</span></p>
+						</div>
+						</div>
+					</div>
+
+
+					<div class="title white_back cmnts_prdct" style="text-align:center">
+						<ul class="copy_link">
+							<li> <a  > <img src="../webhtml/images/link.png" ></a></li>
+							<li> <a  > <img src="../webhtml/images/copy.png" ></a></li>
+							<li> <a  > <img src="../webhtml/images/report.png" ></a></li>
+						</ul>
+					</div>
+			</div>
+	 </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+// This function is called from the pop-up menus to transfer to
+// a different page. Ignore if the value returned is a null string:
+function goPage (newURL) {
+
+    // if url is empty, skip the menu dividers and reset the menu selection to default
+    if (newURL != "") {
+
+        // if url is "-", it is this page -- reset the menu:
+        if (newURL == "-" ) {
+            resetMenu();
+        }
+        // else, send page to designated URL
+        else {
+          document.location.href = newURL;
+        }
+    }
+}
+
+// resets the menu selection upon entry to this page:
+function resetMenu() {
+ document.gomenu.selector.selectedIndex = 2;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<div class="page-wrapper" >
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Users</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/!">Home</a></li>
+        <li class="breadcrumb-item active">Add Users</li>
+      </ol>
+    </div>
+    <div>
+      <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+         <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0 text-white">Add Users</h4>
+                        </div>
+                        <div class="card-body">
+                            <form name="add_user"  id="add_user">
+                                <div class="form-body">
+                                    <h3 class="card-title">Person Info</h3>
+                                    <hr>
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6" ng-class="(add_user.name.$touched && add_user.name.$invalid)?'has-danger':''">
+                                            <div class="form-group">
+                                                <label class="control-label">Name</label>
+                                                <input type="text" name="name" ng-model="name" required class="form-control" placeholder="Name">
+                                                <small ng-show="add_user.name.$touched && add_user.name.$invalid" class="form-control-feedback"> Name filed is required </small> </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group " ng-class="(add_user.email.$touched && add_user.email.$invalid)?'has-danger':''">
+                                                <label class="control-label">Email</label>
+                                                <input type="email" ng-model="email" name="email"  required id="" class="form-control form-control-danger" placeholder="Email">
+                                                <small ng-show="add_user.email.$touched && add_user.email.$invalid" class="form-control-feedback"> Email field is required. </small> </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group " ng-class="(add_user.phone.$touched && add_user.phone.$invalid)?'has-danger':''">
+                                              <label class="control-label">Phone</label>
+                                              <input type="number" name="phone" ng-model="phone" required id="" class="form-control form-control-danger" placeholder="Phone">
+                                              <small ng-show="add_user.phone.$touched && add_user.phone.$invalid" class="form-control-feedback"> Phone field is required. </small> </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label class="control-label">User Type</label>
+                                              <div class="form-check">
+                                                  <label class="custom-control custom-radio">
+                                                      <input id="radio1" ng-model="user_type" name="radio" type="radio" value="1"  checked class="custom-control-input">
+                                                      <span class="custom-control-indicator"></span>
+                                                      <span class="custom-control-description">Company</span>
+                                                  </label>
+                                                  <label class="custom-control custom-radio">
+                                                      <input id="radio2" ng-model="user_type"  name="radio" type="radio" value="0" class="custom-control-input">
+                                                      <span class="custom-control-indicator"></span>
+                                                      <span class="custom-control-description">User</span>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+
+                                    <!--/row-->
+                                    <h3 class="box-title m-t-40">Address</h3>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group " ng-class="(add_user.state.$touched && add_user.state.$invalid)?'has-danger':''">
+                                              <label class="control-label">State</label>
+                                              <input type="text" name="state" ng-model="state" required id="" class="form-control form-control-danger" placeholder="State">
+                                              <small ng-show="add_user.state.$touched && add_user.state.$invalid" class="form-control-feedback"> State field is required. </small> </div>
+                                        </div>
+
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                          <div class="form-group " ng-class="(add_user.city.$touched && add_user.city.$invalid)?'has-danger':''">
+                                              <label class="control-label">City</label>
+                                              <input type="text" name="city" ng-model="city" required id="" class="form-control form-control-danger" placeholder="City">
+                                              <small ng-show="add_user.city.$touched && add_user.city.$invalid" class="form-control-feedback"> City field is required. </small> </div>
+                                        </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group " ng-class="(add_user.zip_code.$touched && add_user.zip_code.$invalid)?'has-danger':''">
+                                              <label class="control-label">Post Code</label>
+                                              <input type="text" name="zip_code" ng-model="zip_code" required id="" class="form-control form-control-danger" placeholder="Post Code">
+                                              <small ng-show="add_user.zip_code.$touched && add_user.zip_code.$invalid" class="form-control-feedback"> City field is required. </small> </div>
+                                        </div>
+
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Profile Pic</label>
+                                                <input type="file" name="photo" ng-model="photo" id="photo"   class="form-control form-control-danger" placeholder="Post Code">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                  <Center>  <button type="button" id="avc" ng-click="done()" ng-disabled="add_user.$invalid" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                    <button type="reset" class="btn btn-inverse">Cancel</button></center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>

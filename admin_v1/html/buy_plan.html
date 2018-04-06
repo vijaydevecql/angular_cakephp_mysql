@@ -1,0 +1,77 @@
+<div class="page-wrapper" >
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Plan </h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/!">Home</a></li>
+        <li class="breadcrumb-item active">Buy Plan</li>
+      </ol>
+    </div>
+    <div>
+      <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Plan listing</h4>   <input type="text" ng-model="text" class="  pull-right" placeholder="Search" >
+                    <h6 class="card-subtitle"></h6>
+
+                    <div class="table-responsive">
+                          <table id="demo-foo-addrow" class="table m-t-30 table-hover  contact-list" data-page-size="10">
+                              <thead>
+                                  <tr>
+
+                                      <th><center>User Name</center></th>
+                                      <th><center>Plan Name</center></th>
+                                      <th><center>Price</center></th>
+                                      <th><center>Time</center></th>
+                                      <th><center>Transaction No </center></th>
+
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr ng-show="buy_plan.length==0"><td>No record Found</td></tr>
+                                  <tr  ng-show="buy_plan.length>0" ng-repeat="cat in buy_plan | filter:text">
+                                      <td>
+                                      <center>  {{cat.name}}</center>  </td>
+                                    <td>  <center>  {{cat.plan_name}}</center> </td>
+                                    <td>  <center>  {{cat.Price}}</center> </td>
+                                    <td>  <center>  {{cat.time}}</center> </td>
+                                    <td>  <center>  {{cat.transaction_no}}</center> </td>
+                                  </tr>
+                              </tbody>
+                              <tfoot>
+                                  <tr>
+                                      <td colspan="2">
+                                      </td>
+                                      <td colspan="7">
+                                          <div class="text-right">
+                                              <ul class="pagination"> </ul>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tfoot>
+                          </table>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>

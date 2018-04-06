@@ -1,0 +1,213 @@
+<div class="page-wrapper" >
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Users</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/!">Home</a></li>
+        <li class="breadcrumb-item active">Users</li>
+      </ol>
+    </div>
+    <div>
+      <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title">Users list</h4>  <input type="text" ng-model="text" class="  pull-right" placeholder="Search" >
+                      <h6 class="card-subtitle"></h6>
+                      <div class="table-responsive">
+                          <table id="demo-foo-addrow" class="table m-t-30 table-hover table-striped contact-list" data-page-size="10">
+                              <thead>
+                                  <tr>
+
+                                      <th>Name</th>
+                                      <th>Email</th>
+                                      <th>Phone</th>
+                                      <th>User Type</th>
+                                      <th>Status</th>
+                                      <th>view Address</th>
+                                      <th>Action</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr ng-repeat="user in all_user | filter:text">
+
+                                      <td>
+                                          <a href="javascript:void(0)"><img ng-init="img=(user.photo!='')?'user.photo':'./assets/images/users/4.jpg'" src="{{img}}" alt="user" width="40" class="img-circle" /> {{user.name}}</a>
+                                      </td>
+                                      <td>{{user.email}}</td>
+                                      <td>{{user.phone}}</td>
+                                      <td><span class="label " ng-class="(user.user_type==1)?'label-primary':'label-danger'"><span ng-bind="(user.user_type==1)?'company':'User'"></span> </span> </td>
+                                      <td><span ng-click="update_status(user)" class="label " ng-class="(user.status==1)?'label-success':'label-danger'"><span ng-bind="(user.status==1)?'Active':'Deactive'"></span></span> </td>
+                                      <td><span class="label label-danger">View Address</span></td>
+
+                                      <td>
+                                              <div class="btn-group">
+                                                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      Actions <span class="caret"></span>
+                                                  </button>
+                                                  <ul class="dropdown-menu">
+                                                      <li>
+                                                        <center>  <button  ng-click="edit(user)" class="btn btn-info lable-small" >Edit</button><button ng-click="delete(user)" class="btn btn-danger" >Delete</button></center>
+                                                      </li>
+
+                                                  </ul>
+                                              </div>
+                                          </td>
+                                  </tr>
+
+                              </tbody>
+                              <tfoot>
+                                  <tr>
+                                      <td colspan="2">
+
+                                      </td>
+                                      <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                      <h4 class="modal-title" id="myModalLabel">Edit </h4> </div>
+                                                  <div class="modal-body">
+                                                    <form name="add_user"  id="add_user">
+                                                        <div class="form-body">
+                                                            <center><h3 class="card-title">{{edit_user.name}}</h3></center>
+                                                            <hr>
+                                                            <div class="row p-t-20">
+                                                                <div class="col-md-6" ng-class="(add_user.name.$touched && add_user.name.$invalid)?'has-danger':''">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Name</label>
+                                                                        <input type="text" name="name" ng-model="edit_user.name" required class="form-control" placeholder="Name">
+                                                                        <small ng-show="add_user.edit_user.name.$touched && add_user.name.$invalid" class="form-control-feedback"> Name filed is required </small> </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group " ng-class="(add_user.email.$touched && add_user.email.$invalid)?'has-danger':''">
+                                                                        <label class="control-label">Email</label>
+                                                                        <input type="email" readonly ng-model="edit_user.email" name="email"  required id="" class="form-control form-control-danger" placeholder="Email">
+                                                                        <small ng-show="add_user.email.$touched && add_user.email.$invalid" class="form-control-feedback"> Email field is required. </small> </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                            </div>
+                                                            <!--/row-->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group " ng-class="(add_user.phone.$touched && add_user.phone.$invalid)?'has-danger':''">
+                                                                      <label class="control-label">Phone</label>
+                                                                      <input readonly type="text" name="phone" ng-model="edit_user.phone" required id="" class="form-control form-control-danger" placeholder="Phone">
+                                                                      <small ng-show="add_user.phone.$touched && add_user.phone.$invalid" class="form-control-feedback"> Phone field is required. </small> </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group">
+                                                                      <label class="control-label">User Type</label>
+                                                                      <div class="form-check">
+                                                                          <label class="custom-control custom-radio">
+                                                                              <input id="radio1" ng-model="edit_user.user_type" name="radio" type="radio" value="1"  checked class="custom-control-input">
+                                                                              <span class="custom-control-indicator"></span>
+                                                                              <span class="custom-control-description">Company</span>
+                                                                          </label>
+                                                                          <label class="custom-control custom-radio">
+                                                                              <input id="radio2" ng-model="edit_user.user_type"  name="radio" type="radio" value="0" class="custom-control-input">
+                                                                              <span class="custom-control-indicator"></span>
+                                                                              <span class="custom-control-description">User</span>
+                                                                          </label>
+                                                                      </div>
+                                                                  </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                            </div>
+                                                            <!--/row-->
+
+                                                            <!--/row-->
+                                                            <h3 class="box-title m-t-40">Address</h3>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group " ng-class="(add_user.edit_user.state.$touched && add_user.state.$invalid)?'has-danger':''">
+                                                                      <label class="control-label">State</label>
+                                                                      <input type="text" name="state" ng-model="edit_user.state" required id="" class="form-control form-control-danger" placeholder="State">
+                                                                      <small ng-show="add_user.state.$touched && add_user.state.$invalid" class="form-control-feedback"> State field is required. </small> </div>
+                                                                </div>
+
+                                                                <!--/span-->
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group " ng-class="(add_user.city.$touched && add_user.city.$invalid)?'has-danger':''">
+                                                                      <label class="control-label">City</label>
+                                                                      <input type="text" name="city" ng-model="edit_user.city" required id="" class="form-control form-control-danger" placeholder="City">
+                                                                      <small ng-show="add_user.edit_user.city.$touched && add_user.city.$invalid" class="form-control-feedback"> City field is required. </small> </div>
+                                                                </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                            </div>
+                                                            <!--/row-->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group " ng-class="(add_user.post_code.$touched && add_user.post_code.$invalid)?'has-danger':''">
+                                                                      <label class="control-label">Post Code</label>
+                                                                      <input type="text" name="post_code" ng-model="edit_user.zip_code" required id="" class="form-control form-control-danger" placeholder="Post Code">
+                                                                      <small ng-show="add_user.post_code.$touched && add_user.post_code.$invalid" class="form-control-feedback"> City field is required. </small> </div>
+                                                                </div>
+
+                                                                <!--/span-->
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Profile Pic</label>
+                                                                        <input type="file" name="photo" ng-model="photo" id="photo"   class="form-control form-control-danger" placeholder="Post Code">
+                                                                    </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                            </div>
+                                                        
+
+
+
+
+                                                    </form>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                      <center>  <button type="submit" id="avc" ng-click="Update_profile(edit_user)" ng-disabled="add_type.$invalid" class="btn btn-success"> <i class="fa fa-check"></i> Update</button>
+                                                        <button type="button"  data-dismiss="modal"  class="btn btn-inverse">Cancel</button></center>
+
+                                                  </div>
+                                              </div>
+                                              <!-- /.modal-content -->
+                                          </div>
+                                          <!-- /.modal-dialog -->
+                                      </div>
+                                      <td colspan="7">
+                                          <div class="text-right">
+                                              <ul class="pagination"> </ul>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tfoot>
+                          </table>
+                      </div>
+
+                  </div>
+              </div>
+              <!-- Column -->
+
+
+
+          </div>
+      </div>

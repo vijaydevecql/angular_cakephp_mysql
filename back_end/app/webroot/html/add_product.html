@@ -1,0 +1,604 @@
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-7">
+                <button class="accordion"> 1. Photo <span> How Correctly photograph a car ?</span></button>
+                <div class="panel white_back step1">
+                    <div class="col-md-4">
+                        <img src="../webhtml/images/brws.png" />
+                        <input class="hiden_br" name="image[]" id="fileUpload" multiple="true" type="file"/>
+                    </div>
+                    <div class="texting">
+
+                    </div>
+
+
+                    <div class="col-md-12" style="text-align:center;">
+                        <button ng-click="step_complete(1)" class="nxt_btn"> Next Step > </button>
+                    </div>
+                </div>
+
+                <button class="accordion "> 2. Basic Information</button>
+                <div class="panel filter step2">
+                    <div class="col-md-6">
+                        <p style=""> Condition</p >
+                        <ul class="tabs_cstm">
+                            <li ng-class="(ad_data.is_new==0)?'active':''" ><a ng-click="new_old(0)" >New</a></li>
+                            <li ng-class="(ad_data.is_new==1)?'active':''"><a ng-click="new_old(1)" >Used</a></li>
+                        </ul>
+                        <p> Type</p>
+                        <div class="filter_model">
+                          <div class="form-group">
+                             <select class="form-control"  ng-model="ad_data.type_id" >
+                                    <option>--Please Select Type--</option>
+                                    <option ng-repeat="types in type" value="{{types.id}}">{{types.name}}</option>
+                                </select>
+                        </div>
+                        </div>
+                        <p> Make</p>
+                        <div class="form-group srch_filter">
+                            <i class="fas fa-search"></i>
+                            <input type="text" ng-model="ad_data.make" class="form-control" id="email" class="form-control" placeholder="Type make">
+                        </div>
+
+                        <p> Car VIN number</p>
+                        <div class="form-group">
+                            <input type="text" ng-model="ad_data.vin_no" class="form-control border_rds"  class="form-control" placeholder="Car VIN number">
+                        </div>
+                        <p> Mileage</p>
+                        <div class="form-group">
+                            <input type="text" ng-model="ad_data.mileage" class="form-control border_rds"  class="form-control" placeholder="180 000">
+                        </div>
+                        <p> Year</p>
+                        <div class="form-group">
+                            <input type="text" ng-model="ad_data.year" class="form-control border_rds"  class="form-control" placeholder="Year">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p style=""> Catagory</p >
+                        <div class="filter_img">
+                            <div class="form-group">
+                                <select class="form-control" ng-change="gettype()" ng-model="ad_data.category_id" >
+                                    <option>--Please Select category--</option>
+                                    <option ng-repeat="cat in category" value="{{cat.id}}">{{cat.name}}</option>
+                                </select>
+                            </div>
+                            <img class="down" src="../webhtml/images/down.png">
+                        </div>
+
+                        <p> Modal</p>
+                        <div class="form-group srch_filter">
+                            <i class="fas fa-search"></i>
+                            <input type="email" class="form-control"  ng-model="ad_data.modal" id="email" class="form-control" placeholder="Type make">
+                        </div>
+
+                        <p> Location</p>
+                        <div class="filter_img">
+                            <div class="form-group">
+                                <input type="text" ng-model="ad_data.state" class="form-control" placeholder="state"/>
+                            </div>
+                            <img class="down" src="../webhtml/images/down.png">
+                        </div>
+                        <div class="filter_img">
+                            <div class="form-group">
+                                <input type="text" ng-model="ad_data.city" class="form-control" placeholder="city"/>
+                            </div>
+                            <img class="down" src="../webhtml/images/down.png">
+                        </div>
+                        <div class="filter_img">
+                            <div class="form-group">
+                               <input type="text" ng-change="get_latlong()" ng-model="ad_data.zip_code" class="form-control" placeholder="Zip code"/>
+
+                               <input type="hidden"  ng-model="ad_data.latitude" class="form-control" placeholder="Zip code"/>
+                               <input type="hidden"  ng-model="ad_data.longitude" class="form-control" placeholder="Zip code"/>
+                               <input type="hidden"  ng-model="ad_data.location" class="form-control" placeholder="Zip code"/>
+                            </div>
+                            <img class="down" src="../webhtml/images/down.png">
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="text-align:center;">
+                        <button  ng-click="step_complete(2)" class="nxt_btn"> Next Step > </button>
+                    </div>
+                </div>
+
+                <button class="accordion">3. Specifications</button>
+                <div class="panel panel_3_gas step3">
+                    <div class="col-md-12">
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Fual Type</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.fuel_type" Placeholder="Fual Type" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Transmission</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.transmission" Placeholder="Transmission" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Condition</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.condition" Placeholder="Condition" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Manual</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.manual" Placeholder="manual" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Fual Type</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.fuel_type" Placeholder="Fual Type" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Door</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.doors" Placeholder="Door" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Miles</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.miles" Placeholder="Miles" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Drive Unit</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.drive_unit" Placeholder="Drive Unit" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Drive Type</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.drive_type" Placeholder="Drive Type" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Wheel</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.wheel" Placeholder="Wheel" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Tire</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.tire" Placeholder="Tire" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Exterior Color</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.exterior_color" Placeholder="Exterior Color" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Interior Color</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.interior_color" Placeholder="Interior Color" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Passenger Capacity</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.passenger_capacity" Placeholder="Passenger Capacity" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Engine</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.engine" Placeholder="Engine" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-12" style="text-align:center;">
+                        <button  ng-click="step_complete(3)" class="nxt_btn"> Next Step > </button>
+                    </div>
+                </div>
+                <button class="accordion">4. Additional Information</button>
+                <div class="panel filter step4">
+                      <div class="col-md-12">
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Horse Power</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.horse_power" Placeholder="Horse Power" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text">Basic Warranty</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.basic_warranty" Placeholder="Basic Warranty" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Powertrain Warranty</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.powertrain_warranty" Placeholder="Powertrain Warranty" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Stock Number</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.stock_number" Placeholder="Stock Number" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Braking Traction</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.braking_traction" Placeholder="Braking Traction" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Comfort Convenience</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.comfort_convenience" Placeholder="Comfort Convenience" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Entertainment Instrumentation</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.entertainment_instrumentation" Placeholder="Entertainment Instrumentation" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Lighting</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.lighting" Placeholder="lighting" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Roof Glass</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.roofs_glass" Placeholder="Roof Glass" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Safety Security</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.safety_security" Placeholder="Safety Security" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Seat</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.seats" Placeholder="Seat" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Steering</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.steering" Placeholder="Steering" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                        <div class="side_4 ">
+                            <div class="span4 ">
+                                <span class="srch_text"> Wheels Tires</span>
+                            </div>
+                            <div class="span7 ">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" ng-model="ad_data.wheels_tires" Placeholder="Wheels Tires" />
+                                </div>
+                                <img class="down" src="../webhtml/images/down.png">
+                            </div>
+                        </div>
+                </div>
+
+                    <div class="col-md-12" style="text-align:center;">
+                        <button ng-click="step_complete(4)" class="nxt_btn"> Next Step > </button>
+                    </div>
+                </div>
+
+                <button class="accordion active">5. Other Information</button>
+                <div class="panel block_5 step5">
+                    <textarea class="form-control" ng-model="ad_data.additional_information" placeholder="Other Information"> </textarea>
+                    <div class="col-md-12" style="text-align:center;">
+                        <button ng-click="step_complete(5)" class="nxt_btn"> Next Step > </button>
+                    </div>
+                </div>
+                <button class="accordion active">6. Price</button>
+                <div class="panel block_5 step6">
+                    <div class="col-md-6">
+                      <div class="span4 ">
+                          <span class="srch_text">Price</span>
+                      </div>
+                        <div class="form-group">
+                              <input class="form-control payment_inpt" id="email" ng-model="ad_data.price" placeholder="$25 000" >
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="text-align:center;">
+                        <button  class="nxt_btn"> Finish </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 prct_right_side">
+                <div class="steps1 white_back">
+                    <span> Steps</span>
+                    <ul class="six_steps">
+                        <li ng-class="(step == 1) ? 'active' : ''"> <a  > 1</a></li>
+                        <li ng-class="(step == 2) ? 'active' : ''"> <a  > 2</a></li>
+                        <li ng-class="(step == 3) ? 'active' : ''"> <a  > 3</a></li>
+                        <li ng-class="(step == 4) ? 'active' : ''"> <a  > 4</a></li>
+                        <li ng-class="(step == 5) ? 'active' : ''"> <a  > 5</a></li>
+                        <li ng-class="(step == 6) ? 'active' : ''"> <a  > 6</a></li>
+                    </ul>
+                </div>
+                <div class="steps2 white_back">
+                    <h3> Left Offer</h3> <span> {{offer}}</span>
+                    <p>  Expire Date : {{plan}}</p>
+                </div>
+                <button ng-click="renew_plan()" class="blu_filter"> Renew Plans </button>
+
+                <div class="slot white_back">
+                    <h2> Slor Perview</h2>
+                    <button class="accordion active">1. Photos</button>
+                    <div class="panel block_5">
+                        <div class="texting">
+
+                        </div>
+                    </div>
+                    <button class="accordion active">2. Basic</button>
+                    <div class="panel slot_3">
+                        <p> Make <span> {{ad_data.make}} </span></p>
+                        <p> modal <span> {{ad_data.modal}} </span></p>
+                        <p> Price <span> {{ad_data.price}} </span></p>
+                        <p> Mileage <span> {{ad_data.mileage}} </span></p>
+                        <p> New <span> {{(ad_data.is_new)?'Used':'New'}} </span></p>
+                        <p> year <span> {{ad_data.year}} </span></p>
+                        <p> Modified Date <span> {{ad_data.modified_date}} </span></p>
+                        <p> state <span> {{ad_data.state}} </span></p>
+                        <p> City <span> {{ad_data.city}} </span></p>
+                        <p> zip_code <span> {{ad_data.zip_code}} </span></p>
+                        <p> VIN No <span> {{ad_data.vin_no}} </span></p>
+                        <p> Mileage <span> {{ad_data.mileage}} </span></p>
+
+
+                    </div>
+                    <button class="accordion active">3. Specifications</button>
+                    <div class="panel slot_3">
+                        <p> Fuel Type <span> {{ad_data.fuel_type}} </span></p>
+                        <p> Transmission <span> {{ad_data.transmission}} </span></p>
+                        <p> Condition <span> {{ad_data.condition}} </span></p>
+                        <p> Manual <span> {{ad_data.manual}} </span></p>
+                        <p> Doors <span> {{ad_data.doors}} </span></p>
+                        <p> Miles <span> {{ad_data.miles}} </span></p>
+                        <p> Drive Unit  <span> {{ad_data.drive_unit}} </span></p>
+                        <p> Drive Type <span> {{ad_data.drive_type}} </span></p>
+                        <p> Wheel <span> {{ad_data.wheel}} </span></p>
+                        <p> Exterior Color <span> {{ad_data.exterior_color}} </span></p>
+                        <p> Interior Color <span> {{ad_data.interior_color}} </span></p>
+                        <p> Passenger Capacity <span> {{ad_data.passenger_capacity}} </span></p>
+                        <p> Engine <span> {{ad_data.engine}} </span></p>
+                        <p> Horse Power <span> {{ad_data.horse_power}} </span></p>
+
+
+                    </div>
+
+                    <button class="accordion active">4. Specifications</button>
+                    <div class="panel slot_3 slot_4">
+                        <p> Basic Warranty <span> {{ad_data.basic_warranty}} </span></p>
+                        <p> Powertrain Warranty <span> {{ad_data.powertrain_warranty}} </span></p>
+                        <p> Stock Number <span> {{ad_data.stock_number}} </span></p>
+                        <p> Braking Traction <span> {{ad_data.braking_traction}} </span></p>
+                        <p> Entertainment Instrumentation <span> {{ad_data.entertainment_instrumentation}} </span></p>
+                        <p> Lighting <span> {{ad_data.lighting}} </span></p>
+                        <p> Roofs Glass <span> {{ad_data.roofs_glass}} </span></p>
+                        <p> Safety Security <span> {{ad_data.safety_security}} </span></p>
+                        <p> Seats <span> {{ad_data.seats}} </span></p>
+                        <p> Steering <span> {{ad_data.steering}} </span></p>
+                        <p> Wheels Tires <span> {{ad_data.wheels_tires}} </span></p>
+
+                    </div>
+                    <button class="accordion active">5. Other Information</button>
+                    <div class="panel block_5">
+                         <p> {{ad_data.additional_information}} </p>
+
+                    </div>
+                    <button class="accordion active">6. Price</button>
+                    <div class="panel slot_6">
+                        <h4> $ {{ad_data.price}}</h4>
+
+                    </div>
+                </div>
+
+                <button ng-click="addnew()" class="nxt_btn"> Publish</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>
+
+
+<script type="text/javascript">
+    // This function is called from the pop-up menus to transfer to
+    // a different page. Ignore if the value returned is a null string:
+    function goPage(newURL) {
+
+        // if url is empty, skip the menu dividers and reset the menu selection to default
+        if (newURL != "") {
+
+            // if url is "-", it is this page -- reset the menu:
+            if (newURL == "-") {
+                resetMenu();
+            }
+            // else, send page to designated URL
+            else {
+                document.location.href = newURL;
+            }
+        }
+    }
+
+// resets the menu selection upon entry to this page:
+    function resetMenu() {
+        document.gomenu.selector.selectedIndex = 2;
+    }
+
+</script>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+</body>
+</html>

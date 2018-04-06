@@ -1,0 +1,28 @@
+<div class="profile-img"> <img src="{{admin_info.photo}}" alt="user" />
+    <!-- this is blinking heartbit-->
+    <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
+</div>
+<!-- User profile text-->
+<div class="profile-text" ng-controller="profile">
+    <h5>{{admin_info.first_name}} {{admin_info.last_name}}</h5>
+    <a  class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
+    <!--<a href="app-email.html" class="" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>-->
+    <a ng-click="logout()" class="" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+    <div class="dropdown-menu animated flipInY">
+        <!-- text-->
+        <a href="#!/profile" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+        <!-- text-->
+        <a href="#!/balance" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+        <!-- text-->
+
+        <!-- text-->
+        <div class="dropdown-divider"></div>
+        <!-- text-->
+        <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+        <!-- text-->
+        <div class="dropdown-divider"></div>
+        <!-- text-->
+        <a ng-click="logout()" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+        <!-- text-->
+    </div>
+</div>

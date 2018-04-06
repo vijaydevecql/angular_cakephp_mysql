@@ -1,0 +1,148 @@
+
+<div id="content">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span8 ">
+					<div class="title white_back">
+						<h3> Quick Search <span> ADVANCED SEARCH <span class="blue_icon"><img src="../webhtml/images/blue_arow.png" ></span></span></h3>
+
+						<div class="">
+						<div class="col-md-5 ">
+							<div class="side_4 ">
+								<div class="span4 ">
+									<span class="srch_text"> Catagory</span>
+								</div>
+								<div class="span8 ">
+								<div class="form-group">
+									<select class="form-control" ng-model="category_id" id="exampleFormControlSelect1">
+									  <option>Any</option>
+									 <option ng-repeat="cat in category"  value="{{cat.id}}" >{{cat.name}}</option>
+									</select>
+								 </div>
+								 <img class="down" src="../webhtml/images/down.png" >
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span4 ">
+									<span class="srch_text"> Make</span>
+								</div>
+								<div class="span8 ">
+									<div class="form-group">
+									<input ng-model="make" placeholder="Make" class="form-control" name="make" />
+
+								  </div>
+								   <img class="down" src="../webhtml/images/down.png" >
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span4 ">
+									<span class="srch_text"> Model</span>
+								</div>
+								<div class="span8 ">
+								<div class="form-group">
+									<input ng-model="modal" class="form-control" placeholder="modal" name="modal" />
+								  </div>
+								   <img class="down" src="../webhtml/images/down.png" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 ">
+							<div class="side_4 ful_bar">
+								<div class="col-md-12 padding_left">
+								<div class="span2 ">
+									<span class="srch_text"> State</span>
+								</div>
+								<div class="span10 ">
+									<div class="form-group">
+										<input ng-model="modal" class="form-control" placeholder="state" name="state" />
+									</div>
+								   <img class="down" src="../webhtml/images/down.png" >
+								</div>
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span2 ">
+									<span class="srch_text"> Price</span>
+								</div>
+								<div class="span10 counter ">
+									<div class="col-md-6 ">
+										<div class="input-group">
+											  <span class="input-group-addon">from</span>
+											  <input type="text" ng-model="from_price" class="form-control" aria-label="Amount (to the nearest dollar)">
+											  <span class="input-group-addon">$</span>
+										</div>
+									</div>
+									<div class="col-md-6 ">
+										<div class="input-group">
+											  <span class="input-group-addon">to</span>
+											  <input type="text" ng-model="to_price" class="form-control" aria-label="Amount (to the nearest dollar)">
+											  <span class="input-group-addon">$</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="side_4 ">
+								<div class="span2 ">
+									<span class="srch_text"> Year</span>
+								</div>
+								<div class="span10  ">
+									<div class="col-md-6 ">
+										<div class="form-group">
+										<input ng-model="to_year" class="form-control" placeholder="TO YEAR" name="to_year" />
+									</div>
+								   <img class="down" src="../webhtml/images/down.png" >
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+										<input ng-model="from_year" class="form-control" placeholder="FROM YEAR" name="from_year" />
+									</div>
+								   <img class="down" src="../webhtml/images/down.png" >
+									</div>
+								</div>
+							</div>
+							<div class="side_4 results">
+								<div class="span2 ">
+									<span class="srch_text"> </span>
+								</div>
+								<div class="span10  ">
+									<a ng-click="find()" >Show Results</a>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+
+					<div class="last_added white_back title">
+						<h3>Last added</h3>
+						<div class="col-md-4" ng-repeat="cars in car_details | orderBy:'-created' | limitTo:7 ">
+							<div class="last_items">
+								<img style="height:200px" src="{{cars.images[0].images}}" >
+								<h3> {{cars.category_name}}</h3>
+								<span class="white_icon"><a ng-click="details(cars)" ><img  src="../webhtml/images/white_arow.png" ></a></span>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="span4 ">
+					<div class="title white_back">
+						<h3> Populer Category <span> All <span class="blue_icon"><img src="../webhtml/images/blue_arow.png" ></span></span></h3>
+						<div class="col-xs-4 cars_icons" ng-repeat="cat in category">
+							<span class="cat_name" ng-bind="">{{cat.name}}</span>
+						</div>
+
+					</div>
+				</div>
+		</div>
+	 </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>

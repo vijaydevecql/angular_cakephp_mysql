@@ -1,0 +1,81 @@
+<div class="page-wrapper" >
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Plan</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/!">Home</a></li>
+        <li class="breadcrumb-item active">Add Plan</li>
+      </ol>
+    </div>
+    <div>
+      <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+         <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0 text-white">Add Plan</h4>
+                        </div>
+                        <div class="card-body">
+                          <form name="add_type"  id="add_type">
+                              <div class="form-body">
+
+                                  <div class="row p-t-20">
+                                      <div class="col-md-4" ng-class="(add_type.name.$touched && add_type.name.$invalid)?'has-danger':''">
+                                          <div class="form-group">
+                                              <label class="control-label">Name</label>
+                                              <input type="text" name="name" ng-model="name" required class="form-control" placeholder="Name">
+                                              <small ng-show="add_type.name.$touched && add_type.name.$invalid" class="form-control-feedback"> Name filed is required </small> </div>
+                                      </div>
+                                      <!--/span-->
+                                      <div class="col-md-4">
+                                          <div class="form-group " ng-class="(add_type.price.$touched && add_type.time.$invalid)?'has-danger':''">
+                                              <label class="control-label">Price</label>
+                                              <input type="number" name="price" ng-model="price" required class="form-control" placeholder="Price">
+                                              <small ng-show="add_type.price.$touched && add_type.price.$invalid" class="form-control-feedback"> Price field is required. </small> </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group " ng-class="(add_type.time.$touched && add_type.time.$invalid)?'has-danger':''">
+                                              <label class="control-label">Time in month</label>
+                                              <input type="number" name="time" ng-model="time" required class="form-control" placeholder="Time">
+                                              <small ng-show="add_type.time.$touched && add_type.time.$invalid" class="form-control-feedback"> Time field is required. </small> </div>
+                                      </div>
+
+                                  </div>
+                                    <div class="row p-t-20">
+                                      <div class="col-md-12">
+                                          <div class="form-group " ng-class="(add_type.description.$touched && add_type.description.$invalid)?'has-danger':''">
+                                              <label class="control-label">Description</label>
+                                              <textarea  name="description" ng-model="description" required class="form-control" placeholder="Description"></textarea>
+                                              <small ng-show="add_type.description.$touched && add_type.description.$invalid" class="form-control-feedback"> description field is required. </small> </div>
+                                      </div>
+
+                                    </div>
+
+
+                              </div>
+                              <div class="form-actions">
+                                <center>  <button type="submit" id="avc" ng-click="plan_added()" ng-disabled="add_type.$invalid" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                  <button type="button"  data-dismiss="modal"  class="btn btn-inverse">Cancel</button></center>
+                              </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>

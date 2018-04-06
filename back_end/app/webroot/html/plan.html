@@ -1,0 +1,60 @@
+
+<div id="content" class="purchase">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-6">
+				<div class="title white_back">
+					<h3> My current plan</h3>
+					<div class="my_custom_plan">
+						<table class="table">
+							<thead>
+							  <tr>
+								<th>Plan Name</th>
+								<th>Plan Price</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+								<td>{{plan_name}}</td>
+								<td>{{plan_price}}</td>
+							  </tr>
+
+							</tbody>
+						 </table>
+						  <div class="plan_date">
+							<span> 10:08 <br> 14/17/2017</span>
+						  </div>
+					</div>
+				</div>
+
+				<div class="steps2 white_back">
+					<h3> Total publications left</h3> <span class="red_mark"> {{offer}}</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="title white_back">
+					<h3> Purchase new plan</h3>
+					<div class="span_btn">
+						<table ng-show="plan_list.length>0" class="table" ng-repeat="plans in plan_list">
+							<tbody>
+							  <tr class="">
+								<td>{{plans.name}}</td>
+								<td class="ligt_text">{{plans.price}}</td>
+								<td rowspan="2" ><button ng-click="select_plan(plans)" class="green_btn"> Purchase</button></td>
+							  </tr>
+							  <tr class="row2">
+								<td >Time Peroid</td>
+								<td>{{plans.time}} Days</td>
+							  </tr>
+
+							</tbody>
+						</table>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>

@@ -1,0 +1,149 @@
+
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content" class="profile">
+	 <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-5">
+				<div class="title white_back">
+					<h3> {{name}}</h3>
+					<div class="col-md-5 profile_pic" ng-init="photo=(image=='')?'../webhtml/images/todd.png':image">
+						<img src="{{photo}}" class="profile_image" >
+						  <input class="hiden_br" name="image" id="imageprofile" multiple="false" type="file"/>
+					</div>
+					<div class="col-md-7">
+						<div class="prfl_btns">
+							<a ng-if="is_profile==1" href="#!/chat/{{friend_id}}/{{ad_id}}" class="blu_filter"> Send Message</a>
+							<button ng-if="is_profile==0" ng-click="upload_image()"  class="blu_filter"> Update Profile</button>
+							<a ng-click="showphone()" class="white_filter"> show phone Number</a>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class=" slot_3 ">
+						<p ng-show="is_profile==0"> Name <span> {{name}} </span></p>
+						<p ng-if="is_profile==1"> Seller Name <span> {{name_name}} </span></p>
+						<p> Email <span> {{email}} </span></p>
+						<p> Phone   <span> {{phone}} </span></p>
+						<p> State <span> {{state}}  </span></p>
+						<p> city <span> {{city}}  </span></p>
+						<p> Zip Code <span> {{zip_code}}  </span></p>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7" ng-show="is_profile==0">
+
+				<div class="title white_back filter" ng-show="is_profile==0">
+							<h3> Edit Information</h3>
+							<div class="width_100">
+							<div class="col-md-7 ">
+							<p> Name</p>
+								<div class="form-group">
+									<input class="form-control border_rds" id="email" ng-model="name" type="text">
+								</div>
+							</div>
+							</div>
+						<div class="col-md-4">
+							<p> Location</p>
+							<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="state" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-4">
+						<p class="opacity_0"> Location</p>
+						<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="city" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-4">
+						<p class="opacity_0"> Location</p>
+							<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="zip_code" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<p> Email</p>
+							<div class="form-group">
+								<input class="form-control border_rds" id="email" ng-model="email" readonly type="text" placeholder="Enter your email">
+							</div>
+						</div>
+						<div class="col-md-6">
+						<p> Phone</p>
+						<div class="form-group">
+								<input class="form-control border_rds" id="email" ng-model="phone" readonly type="text" placeholder="Enter your Number">
+						</div>
+						</div>
+						<h3 class="prf_head"> Edit billing address</h3>
+						<div class="col-md-6">
+							<p> Address 1</p>
+							<div class="form-group">
+									<input class="form-control border_rds" id="email" ng-model="address_one"  type="text" placeholder="Enter Address">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<p> Address 2</p>
+							<div class="form-group">
+									<input class="form-control border_rds" id="email" ng-model="address_two"  type="text" placeholder="Enter Address">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<p> Location</p>
+							<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="city" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-4">
+						<p class="opacity_0"> Location</p>
+						<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="state" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-4">
+						<p class="opacity_0"> Location</p>
+							<div class="filter_img">
+								<div class="form-group">
+										<input class="form-control border_rds"  ng-model="zip_code" type="text">
+								</div>
+								<img class="down" src="../webhtml/images/down.png">
+							</div>
+						</div>
+						<div class="col-md-6">
+						<p> Phone</p>
+						<div class="form-group">
+								<input class="form-control border_rds" id="email" ng-model="phone" readonly type="text" placeholder="Enter your Number">
+						</div>
+						</div>
+						<div class="col-md-12" style="text-align:center;">
+							<a ng-click="updateProfile()" class="nxt_btn">Save</a>
+ 						</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+
+</div>
